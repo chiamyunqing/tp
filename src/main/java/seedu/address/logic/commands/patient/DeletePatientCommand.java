@@ -13,6 +13,7 @@ import seedu.address.model.patient.Patient;
 
 /**
  * Deletes a patient identified by the patient's name from the application.
+ * Name matching is case insensitive.
  */
 public class DeletePatientCommand extends Command {
 

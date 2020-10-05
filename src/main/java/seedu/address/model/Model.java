@@ -56,27 +56,27 @@ public interface Model {
     ReadOnlyAddressBook getAddressBook();
 
     /**
-     * Returns true if a patient with the same identity as {@code patient} exists in the address book.
+     * Returns true if a patient with the same identity as {@code patient} exists in the app.
      */
     boolean hasPatient(Patient patient);
 
     /**
      * Deletes the given patient.
-     * The patient must exist in the address book.
+     * The patient must exist in the app.
      */
     void deletePatient(Patient target);
 
     /**
      * Adds the given patient.
-     * {@code patient} must not already exist in the address book.
+     * {@code patient} must not already exist in the app.
      */
     void addPatient(Patient patient);
 
     /**
      * Replaces the given patient {@code target} with {@code editedPatient}.
-     * {@code target} must exist in the address book.
+     * {@code target} must exist in the app.
      * The patient identity of {@code editedPatient} must not be the same as
-     * another existing patient in the address book.
+     * another existing patient in the app.
      */
     void setPatient(Patient target, Patient editedPatient);
 
@@ -102,4 +102,10 @@ public interface Model {
     void addRooms(int num);
 
     RoomList getRoomList();
+
+    /**
+     * Allocates the patient {@code patient} to the specified room {@code patient}
+     * The patient must exist in the app and the room must be empty.
+     */
+    void setPatientToRoom(Room room, Patient patient);
 }
